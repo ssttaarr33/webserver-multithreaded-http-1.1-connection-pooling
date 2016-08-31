@@ -26,7 +26,7 @@ import org.json.simple.JSONObject;
 public class GetHandler {
 
     private static HashMap<String, Boolean> lights = new HashMap<>();
-    public static final String VERSION = "HTTP/1.0";
+    private String version;
     private ArrayList<String> headers = new ArrayList<>();
 
     private byte[] body;
@@ -36,6 +36,7 @@ public class GetHandler {
     public GetHandler(HttpRequest req) {
         header = new Header();
         status = Status._200;
+        this.version = req.getVersion();
         try {            
             File file;
             String root = "var/www/";
@@ -149,6 +150,14 @@ public class GetHandler {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+    
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
 }

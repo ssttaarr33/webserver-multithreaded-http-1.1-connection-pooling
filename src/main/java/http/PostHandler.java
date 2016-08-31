@@ -34,7 +34,7 @@ import org.json.simple.JSONObject;
 public class PostHandler {
 
     private static HashMap<String, Boolean> lights = new HashMap<>();
-    public static final String VERSION = "HTTP/1.0";
+    private String version;
 
     private ArrayList<String> headers = new ArrayList<>();
 
@@ -51,6 +51,7 @@ public class PostHandler {
     }    
 
     public PostHandler(HttpRequest req) throws UnsupportedEncodingException {
+        this.version = req.getVersion();
         header = new Header();
         switch (req.getUri()) {
             case "/switchSingleLight":
@@ -193,5 +194,13 @@ public class PostHandler {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 }

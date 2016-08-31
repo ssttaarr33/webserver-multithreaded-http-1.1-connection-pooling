@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class DefaultHandler {
 
-    public static final String VERSION = "HTTP/1.0";
+    private String version;
 
     private ArrayList<String> headers = new ArrayList<>();
 
@@ -65,5 +65,13 @@ public class DefaultHandler {
 
     public void setHeader(Header header) {
         this.header = header;
+    }
+    
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 }

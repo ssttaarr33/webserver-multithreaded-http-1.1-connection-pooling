@@ -22,6 +22,7 @@ public class HttpResponse {
     private Status status;
     private List<String> headers = new ArrayList<>();
     private byte[] body;
+    private String version;
 
     public ArrayList<String> getHeaders() {
         return (ArrayList<String>) headers;
@@ -46,10 +47,18 @@ public class HttpResponse {
     public void setStatus(Status status) {
         this.status = status;
     }
+    
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
 
     public void write(OutputStream os) throws IOException {
         DataOutputStream output = new DataOutputStream(os);
-        output.writeBytes(Utils.getVERSION() + " " + this.getStatus().toString() + "\r\n");
+        output.writeBytes(this.version + " " + this.getStatus().toString() + "\r\n");
         for (String header : headers) {
             output.writeBytes(header + "\r\n");
         }

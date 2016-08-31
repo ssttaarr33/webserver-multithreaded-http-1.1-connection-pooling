@@ -63,7 +63,7 @@ public class HttpRequest {
 //        System.out.println(str);
         String[] split = str.split("\\s+");
         if(str.contains("HTTP/")){
-            Utils.setVERSION(split[2]);
+            version = split[2];            
         }
         if (split.length > 1 && !str.contains("HTTP/")) {
             throw new UnsupportedOperationException();

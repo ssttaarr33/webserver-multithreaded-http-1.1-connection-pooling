@@ -26,30 +26,35 @@ public class RequestDispatch {
                 response.setHeaders(handlerHead.getHeaders());
                 response.setBody("".getBytes());
                 response.setStatus(handlerHead.getStatus());
+                response.setVersion(request.getVersion());
                 break;
             case POST:
                 PostHandler handlerPost = new PostHandler(request);
                 response.setHeaders(handlerPost.getHeaders());
                 response.setBody(handlerPost.getBody());
                 response.setStatus(handlerPost.getStatus());
+                response.setVersion(request.getVersion());
                 break;
             case GET:
                 GetHandler handlerGet = new GetHandler(request);
                 response.setHeaders(handlerGet.getHeaders());
                 response.setBody(handlerGet.getBody());
                 response.setStatus(handlerGet.getStatus());
+                response.setVersion(request.getVersion());
                 break;
             case UNRECOGNIZED:
                 DefaultHandler handlerUnrec = new DefaultHandler(Status._400);
                 response.setHeaders(handlerUnrec.getHeaders());
                 response.setBody(handlerUnrec.getBody());
                 response.setStatus(handlerUnrec.getStatus());
+                response.setVersion(request.getVersion());
                 break;
             default:
                 DefaultHandler handlerDefault = new DefaultHandler(Status._501);
                 response.setHeaders(handlerDefault.getHeaders());
                 response.setBody(handlerDefault.getBody());
                 response.setStatus(handlerDefault.getStatus());
+                response.setVersion(request.getVersion());
                 break;
         }
         
