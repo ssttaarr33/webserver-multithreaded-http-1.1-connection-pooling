@@ -1,5 +1,6 @@
 # webserver-multithreaded-http-1.1-connection-pooling
 Low level implementation of a java web server.
+- Starts on 8001 port
 - It supports connection pooling, using java.util.concurrent.Executor
 - It can serve static files (angular frontend).
 - Implements Get & Post methods for the scenario - home automation.
